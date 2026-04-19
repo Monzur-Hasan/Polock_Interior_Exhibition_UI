@@ -1,0 +1,53 @@
+.not-found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa; 
+  }
+  
+  .error-container {
+    text-align: center;
+    background-color: transparent;
+    padding: 50px;
+    border-radius: 10px;
+    animation: fadeInUp 1s ease-out;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes bounceIn {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-15px);
+    }
+  }
+  
+  h1 {
+    font-size: 5em;
+    color: #dc3545;
+    margin-bottom: 10px;
+    animation: bounceIn 1.5s;
+  }
+  
+  p {
+    font-size: 1.5em;
+    color: #6c757d;
+    margin-bottom: 20px;
+    animation: fadeInUp 1.5s 0.5s ease-out backwards;
+  }
+  

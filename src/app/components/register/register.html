@@ -1,0 +1,285 @@
+<main class="main py-3">
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+
+                <!-- CARD -->
+                <div class="card shadow-lg border-0 rounded-4">
+                    <div class="card-body border-bottom header-wrapper">
+
+                        <img src="assets/pi_logo.png" class="header-logo" />
+
+                        <div class="header-title">
+                            <h5 class="fw-bold mb-0">Exhibition Registration</h5>
+                            <small class="text-muted">Please fill all required information</small>
+                        </div>
+
+                    </div>
+
+                    <!-- FORM -->
+                    <div class="card-body p-4">
+
+                        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+                            <!-- ROW 1 -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="label-and-input">
+                                        <input type="text" class="formbold-form-input" formControlName="phoneNumber"
+                                            (focus)="onFocus('phoneNumber')" (blur)="onBlur('phoneNumber')"
+                                            placeholder=" " />
+                                        <label class="formbold-form-label" [ngClass]="{
+                                            'label-up': isFocused.phoneNumber || registerForm.get('phoneNumber')?.value
+                                            }">Phone Number
+                                        </label>
+                                    </div>
+                                    <small class="text-danger"
+                                        *ngIf="f['phoneNumber'].touched && f['phoneNumber'].invalid">
+                                        Phone is required
+                                    </small>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="label-and-input">
+                                        <input type="text" class="formbold-form-input" formControlName="name"
+                                            (focus)="onFocus('name')" (blur)="onBlur('name')" placeholder=" " />
+                                        <label class="formbold-form-label" [ngClass]="{
+                                        'label-up': isFocused.name || registerForm.get('name')?.value
+                                        }">Name</label>
+                                    </div>
+                                    <small class="text-danger" *ngIf="f['name'].touched && f['name'].invalid">
+                                        Name is required
+                                    </small>
+                                </div>
+                            </div>
+
+                            <!-- ROW 2 -->
+                            <div class="row g-3 mt-1">
+                                <div class="col-md-6">
+                                    <div class="label-and-input">
+                                        <input type="text" class="formbold-form-input" formControlName="projectLocation"
+                                            (focus)="onFocus('projectLocation')" (blur)="onBlur('projectLocation')"
+                                            placeholder=" " />
+                                        <label class="formbold-form-label" [ngClass]="{
+                                            'label-up': isFocused.projectLocation || registerForm.get('projectLocation')?.value
+                                            }">Project Location
+                                        </label>
+                                    </div>
+                                    <small class="text-danger"
+                                        *ngIf="f['projectLocation'].touched && f['projectLocation'].invalid">
+                                        Project location is required
+                                    </small>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="label-and-input">
+                                        <input type="text" class="formbold-form-input" formControlName="email"
+                                            (focus)="onFocus('email')" (blur)="onBlur('email')" placeholder=" " />
+                                        <label class="formbold-form-label" [ngClass]="{
+                                            'label-up': isFocused.email || registerForm.get('email')?.value
+                                            }">Email
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ADDRESS -->
+                            <div class="row g-3 mt-1">
+                                <div class="col-md-12">
+                                    <div class="label-and-input">
+                                        <input type="text" class="formbold-form-input" formControlName="address"
+                                            (focus)="onFocus('address')" (blur)="onBlur('address')" placeholder=" " />
+                                        <label class="formbold-form-label" [ngClass]="{
+                                            'label-up': isFocused.address || registerForm.get('address')?.value
+                                            }">Address
+                                        </label>
+                                    </div>
+                                    <small class="text-danger" *ngIf="f['address'].touched && f['address'].invalid">
+                                        Address is required
+                                    </small>
+                                </div>
+
+                            </div>
+
+                            <!-- MEASUREMENT -->
+                            <div class="row g-3 mt-1">
+                                <div class="col-md-12">
+                                    <div class="label-and-input">
+                                        <input type="text" class="formbold-form-input"
+                                            formControlName="projectMeasurement" (focus)="onFocus('projectMeasurement')"
+                                            (blur)="onBlur('projectMeasurement')" placeholder=" " />
+                                        <label class="formbold-form-label" [ngClass]="{
+                                            'label-up': isFocused.projectMeasurement || registerForm.get('projectMeasurement')?.value
+                                            }">Project Measurement
+                                        </label>
+                                    </div>
+                                    <small class="text-danger"
+                                        *ngIf="f['projectMeasurement'].touched && f['projectMeasurement'].invalid">
+                                        Project measurement is required
+                                    </small>
+                                </div>
+                            </div>
+
+                            <!-- DETAILS -->
+                            <div class="row g-3 mt-1">
+                                <div class="col-md-12">
+                                    <div class="label-and-input">
+                                        <textarea class="formbold-form-input" formControlName="problem"
+                                            (focus)="onFocus('problem')" (blur)="onBlur('problem')"
+                                            placeholder=" "></textarea>
+                                        <label class="formbold-form-label" [ngClass]="{
+                                        'label-up': isFocused.problem || registerForm.get('problem')?.value
+                                        }"> Project Details
+                                        </label>
+                                    </div>
+                                    <small class="text-danger" *ngIf="f['problem'].touched && f['problem'].invalid">
+                                        Project details are required
+                                    </small>
+                                </div>
+                            </div>
+
+                            <!-- COMMENTS -->
+                            <div class="row g-3 mt-1">
+                                <div class="col-md-12">
+                                    <div class="label-and-input">
+                                        <input type="text" class="formbold-form-input" formControlName="comments"
+                                            (focus)="onFocus('comments')" (blur)="onBlur('comments')" placeholder=" " />
+                                        <label class="formbold-form-label" [ngClass]="{
+                                            'label-up': isFocused.comments || registerForm.get('comments')?.value
+                                            }">Comments
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- EXISTING FILES -->
+                            <div class="mt-4" *ngIf="existingImages.length > 0">
+                                <h6 class="fw-semibold mb-2">Existing Images</h6>
+
+                                <div class="image-scroll">
+
+                                    <div class="image-card" *ngFor="let img of existingImages; let i = index">
+
+                                        <img [src]="img.url" (click)="openPreview(img.url)" />
+
+                                        <div class="p-2 text-center">
+                                            <small class="d-block text-truncate">{{ img.name }}</small>
+
+                                            <button type="button" class="btn btn-sm btn-danger w-100 mt-2"
+                                                (click)="removeExistingImage(i)">
+                                                Remove
+                                            </button>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- UPLOAD BOX -->
+                            <div class="mt-4">
+                                <label class="form-label fw-semibold mb-2">Upload Images</label>                   
+
+                                <div class="upload-dropzone" (dragover)="onDragOver($event)" (drop)="onDrop($event)"
+                                    (click)="fileInput.click()">
+
+                                    <input #fileInput type="file" multiple hidden
+                                        accept=".jpg,.jpeg,.png,.jfif,.webp,.heic" (change)="onFileSelect($event)" />
+
+                                    <div class="upload-icon">
+                                        <i class="bi bi-cloud-upload"></i>
+                                    </div>
+
+                                    <p class="mb-1">Drag & Drop or Click to Upload</p>
+
+                                    <small class="text-muted">
+                                        Allowed: jpg, jpeg, png, jfif, webp, heic |
+                                        Images: {{ files.length }}
+                                    </small>
+
+                                </div>
+                            </div>
+
+                            <!-- NEW FILES -->
+                            <div class="row g-3 mt-2" *ngIf="files.length > 0">
+
+                                <div class="image-scroll">
+
+                                    <div class="image-card" *ngFor="let file of files; let i = index">
+
+                                        <img *ngIf="file.preview" [src]="file.preview"
+                                            (click)="openPreview(file.preview)" />
+
+                                        <div class="p-2 text-center">
+                                            <small class="d-block text-truncate">{{ file.file.name }}</small>
+
+                                            <div class="progress mt-2" style="height:6px;">
+                                                <div class="progress-bar" [style.width.%]="file.progress"></div>
+                                            </div>
+
+                                            <button type="button" class="btn btn-sm btn-outline-danger w-100 mt-2"
+                                                (click)="removeFile(i)">
+                                                Remove
+                                            </button>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- SUBMIT -->
+                            <div class="mt-4 text-center">
+                                <button type="submit" [disabled]="loading" class="btn btn-primary w-100">
+                                    <span *ngIf="loading" class="spinner-border spinner-border-sm me-2"></span>
+                                    {{ loading ? 'Submitting...' : 'Submit' }}
+                                </button>
+                            </div>
+
+                            <!-- MESSAGE -->
+                            <div *ngIf="apiMessage" [ngClass]="messageType">
+                                {{ apiMessage }}
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- IMAGE MODAL -->
+    <div class="modal fade show d-block" *ngIf="selectedImage" (click)="closePreview()"
+        style="background: rgba(0,0,0,0.8);">
+        <div class="d-flex justify-content-center align-items-center h-100">
+            <img [src]="selectedImage" class="img-fluid rounded shadow">
+        </div>
+    </div>
+
+    <ng-template #reCaptchaModal let-modal>
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="btn-close"
+                    (click)="modal.dismiss('Cross click')"></button>
+            </div>
+
+            <div class="modal-body captcha-container">
+                <h6>Verify Captcha</h6>
+
+                <!-- Spinner while captcha is loading -->
+                <div *ngIf="isCaptchaLoading" class="d-flex justify-content-center">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+
+                <!-- reCAPTCHA with (load) event -->
+                <re-captcha *ngIf="!isCaptchaLoading" [siteKey]="reCaptchaKey" (resolved)="onCaptchaResolved($event)"
+                    (load)="onCaptchaLoad()">
+                </re-captcha>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </ng-template>
+</main>
